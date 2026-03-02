@@ -9571,19 +9571,19 @@ function createNerTableForDataSet(dataset, datasetName){
             } else {
                 switch (posTags[i]){
                     case "PERSON":
-                        display = display + "<td style=\"color:blue;\"><b>" + words[i] + "</b></td>";
+                        display = display + "<td style=\"color:blue;\"><u><b>" + words[i] + "</b></u></td>";
                         break;
                     case "ORGANIZATION":
-                        display = display + "<td style=\"color:green;\"><b>" + words[i] + "</b></td>";
+                        display = display + "<td style=\"color:green;\"><u><b>" + words[i] + "</b></u></td>";
                         break;
                     case "TIME":
-                        display = display + "<td style=\"color:red;\"><b>" + words[i] + "</b></td>";
+                        display = display + "<td style=\"color:red;\"><u><b>" + words[i] + "</b></u></td>";
                         break;
                     case "LOCATION":
-                        display = display + "<td style=\"color:orange;\"><b>" + words[i] + "</b></td>";
+                        display = display + "<td style=\"color:orange;\"><u><b>" + words[i] + "</b></u></td>";
                         break;
                     case "MONEY":
-                        display = display + "<td style=\"color:magenta;\"><b>" + words[i] + "</b></td>";
+                        display = display + "<td style=\"color:magenta;\"><u><b>" + words[i] + "</b></u></td>";
                         break;
                 }
             }

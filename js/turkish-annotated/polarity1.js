@@ -19832,6 +19832,9 @@ let tourism = [{"sentence":"Aile oteli olarak tavsiye ederim .", "POLARITY":"POS
 
 function createPolarityTableForDataSet(dataset, datasetName){
     let display = "<h1>" + datasetName + "</h1>";
+    display = display + "<p style=\"color:blue;\">POSITIVE</p>";
+    display = display + "<p style=\"color:green;\">NEUTRAL</p>";
+    display = display + "<p style=\"color:red;\">NEGATIVE</p>";
     for (let index = 0; index < dataset.length; index++) {
         display = display + "<h4> Sentence " + (index + 1) + "</h4>"
         let words = dataset[index]["sentence"].split(' ');

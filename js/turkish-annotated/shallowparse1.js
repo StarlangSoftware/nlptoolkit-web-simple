@@ -29391,6 +29391,11 @@ let penn = [{"sentence":"Devasa ölçekli yeni kanunda kullanılan karmaşık ve
 
 function createShallowParseTableForDataSet(dataset, datasetName){
     let display = "<h1>" + datasetName + "</h1>";
+    display = display + "<p style=\"color:blue;\">ÖZNE</p>";
+    display = display + "<p style=\"color:green;\">YÜKLEM</p>";
+    display = display + "<p style=\"color:red;\">NESNE</p>";
+    display = display + "<p style=\"color:orange;\">DOLAYLI TÜMLEÇ</p>";
+    display = display + "<p style=\"color:magenta;\">ZARF TÜMLECİ</p>";
     for (let index = 0; index < dataset.length; index++) {
         display = display + "<h4> Sentence " + (index + 1) + "</h4>"
         let words = dataset[index]["sentence"].split(' ');

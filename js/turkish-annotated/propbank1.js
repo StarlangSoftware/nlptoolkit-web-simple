@@ -27818,6 +27818,10 @@ let tourism = [{"sentence":"Aile oteli olarak tavsiye ederim .", "PROPBANK":"NON
 
 function createPropbankTableForDataSet(dataset, datasetName){
     let display = "<h1>" + datasetName + "</h1>";
+    display = display + "<p style=\"color:green;\">PREDICATE</p>";
+    display = display + "<p style=\"color:blue;\">ARG0</p>";
+    display = display + "<p style=\"color:red;\">ARG1</p>";
+    display = display + "<p style=\"color:magenta;\">ARG2</p>";
     for (let index = 0; index < dataset.length; index++) {
         display = display + "<h4> Sentence " + (index + 1) + "</h4>"
         let words = dataset[index]["sentence"].split(' ');

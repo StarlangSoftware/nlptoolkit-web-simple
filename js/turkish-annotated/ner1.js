@@ -9559,6 +9559,11 @@ let penn = [{"sentence":"Devasa ölçekli yeni kanunda kullanılan karmaşık ve
 
 function createNerTableForDataSet(dataset, datasetName){
     let display = "<h1>" + datasetName + "</h1>";
+    display = display + "<p style=\"color:blue;\">PERSON</p>";
+    display = display + "<p style=\"color:green;\">ORGANIZATION</p>";
+    display = display + "<p style=\"color:red;\">TIME</p>";
+    display = display + "<p style=\"color:orange;\">LOCATION</p>";
+    display = display + "<p style=\"color:magenta;\">MONEY</p>";
     for (let index = 0; index < dataset.length; index++) {
         display = display + "<h4> Sentence " + (index + 1) + "</h4>"
         let words = dataset[index]["sentence"].split(' ');

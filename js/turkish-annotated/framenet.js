@@ -1,7 +1,21 @@
-function createFramenetTableForDataSet(dataset, datasetName){
-    let display = "<h1>" + datasetName + "</h1>";
-    let frames = new Set();
-    let frameSentences = new Map();
+function createFramenetTableForSentence(dataset, index){
+    let display = "<h4> Sentence " + (index + 1) + "</h4>"
+    let words = dataset[index]["sentence"].split(' ');
+    let roleLabels = dataset[index]["FRAMENET"].split(' ')
+    display = display + "<table><tr>";
+    for (let i = 0; i < words.length; i++) {
+        if (roleLabels[i] === "NONE"){
+            display = display + "<td><small>" + words[i] + "</small></td>";
+        } else {
+            display = display + "<td><u><b>" + words[i] + "</b></u><sub><small><small><small>" + roleLabels[i].substring(0, roleLabels[i].indexOf("$")) + "</small></small></small></sub></td>";
+        }
+    }
+    display = display + "</tr>";
+    display = display + "</table>"
+    return display;
+}
+
+function createFrames(dataset, frames, frameSentences){
     for (let index = 0; index < dataset.length; index++) {
         let roleLabels = dataset[index]["FRAMENET"].split(' ')
         for (let i = 0; i < roleLabels.length; i++){
@@ -18,23 +32,17 @@ function createFramenetTableForDataSet(dataset, datasetName){
             }
         }
     }
+}
+
+function createFramenetTableForDataSet(dataset, datasetName){
+    let display = "<h1>" + datasetName + "</h1>";
+    let frames = new Set();
+    let frameSentences = new Map();
+    createFrames(dataset, frames, frameSentences);
     for (let frame of frames){
         display = display + "<h2>" + frame + "</h2>";
         for (let index of frameSentences[frame]) {
-            display = display + "<h4> Sentence " + (index + 1) + "</h4>"
-            let words = dataset[index]["sentence"].split(' ');
-            let roleLabels = dataset[index]["FRAMENET"].split(' ')
-            display = display + "<table><tr>";
-            let colorIndex = -1;
-            for (let i = 0; i < words.length; i++) {
-                if (roleLabels[i] === "NONE"){
-                    display = display + "<td><small>" + words[i] + "</small></td>";
-                } else {
-                    display = display + "<td><u><b>" + words[i] + "</b></u><sub><small><small><small>" + roleLabels[i].substring(0, roleLabels[i].indexOf("$")) + "</small></small></small></sub></td>";
-                }
-            }
-            display = display + "</tr>";
-            display = display + "</table>"
+            display = display + createFramenetTableForSentence(dataset, index);
         }
     }
     return display

@@ -1,15 +1,3 @@
-function include(file) {
-    let script = document.createElement('script');
-    script.src = file;
-    script.type = 'text/javascript';
-    script.defer = true;
-    document.getElementsByTagName('head').item(0).appendChild(script);
-}
-
-include('data/turkish/turkish-propbank.js');
-include('data/turkish/turkish-wordnet.js');
-include('js/wordnet-search.js');
-
 function createPropBankTable(synsetId){
     let display = "<table> <tr> <th>Arg</th> <th>Function</th> <th>Description</th> </tr>";
     for (let i = 0; i < turkishPropBank.length; i++) {
@@ -41,16 +29,3 @@ function createPropBankTableForMultipleSynsets(synsets){
     display = display + "</table>"
     return display
 }
-
-document.getElementById('verbSearch').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const verbName = document.getElementById('verb_name').value;
-    let synsets = getSynsetsWithWord(verbName, turkishWordNet)
-    document.getElementById("result").innerHTML = createPropBankTableForMultipleSynsets(synsets);
-})
-
-document.getElementById('idSearch').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const verbId = document.getElementById('verb_id').value;
-    document.getElementById("result").innerHTML = createPropBankTable(verbId);
-})

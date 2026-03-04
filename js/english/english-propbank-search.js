@@ -1,13 +1,3 @@
-function include(file) {
-    let script = document.createElement('script');
-    script.src = file;
-    script.type = 'text/javascript';
-    script.defer = true;
-    document.getElementsByTagName('head').item(0).appendChild(script);
-}
-
-include('data/english/english-propbank.js');
-
 function createPredicateTable(predicateName){
     let display = "<table> <tr> <th>Id</th> <th>Name</th> <th>Descr</th> <th>f</th> <th>n</th> </tr>";
     for (let i = 0; i < englishPropBank.length; i++) {
@@ -45,15 +35,3 @@ function createRoleSetTable(roleSetName){
     display = display + "</table>"
     return display
 }
-
-document.getElementById('predicateSeaarch').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const predicateName = document.getElementById('predicate_name').value;
-    document.getElementById("result").innerHTML = createPredicateTable(predicateName);
-})
-
-document.getElementById('roleSetSearch').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const roleSetName = document.getElementById('roleset_id').value;
-    document.getElementById("result").innerHTML = createRoleSetTable(roleSetName);
-})

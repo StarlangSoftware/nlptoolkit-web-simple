@@ -1,13 +1,3 @@
-function include(file) {
-    let script = document.createElement('script');
-    script.src = file;
-    script.type = 'text/javascript';
-    script.defer = true;
-    document.getElementsByTagName('head').item(0).appendChild(script);
-}
-
-include('data/turkish/turkish-morphological-analysis.js');
-
 function createMorphologicalAnalysisTable(sentence){
     let words = sentence.split(' ');
     let display = "<table> <tr> <th>Word</th> <th>Morphological Analysis</th> </tr>";
@@ -36,9 +26,3 @@ function createMorphologicalAnalysisTable(sentence){
     display = display + "</table>"
     return display
 }
-
-document.getElementById('morphologicalAnalysis').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const sentence = document.getElementById('sentence').value;
-    document.getElementById("result").innerHTML = createMorphologicalAnalysisTable(sentence);
-})

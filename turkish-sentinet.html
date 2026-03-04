@@ -88,18 +88,46 @@
     <title>Turkish SentiNet</title>
 </head>
 <body>
+<script src="data/turkish/turkish-sentinet.js"></script>
+<script src="data/turkish/turkish-sentiliteralnet.js"></script>
+<script src="js/turkish/turkish-sentinet-search.js"></script>
 <form id="wordSearch">
     <label for="word">Word:</label>
     <input type="text" id="word" name="word" required><br><br>
     <input type="submit" value="Find Word Sense">
+    <script>
+        document.getElementById('wordSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const word = document.getElementById('word').value;
+            for (let i = 0; i < turkishSentiLiteralNet.length; i++) {
+                const sentiNetObject = turkishSentiLiteralNet[i];
+                if (sentiNetObject["word"] === word) {
+                    document.getElementById("result").innerHTML = displaySentiment(sentiNetObject);
+                    break;
+                }
+            }
+        })
+    </script>
 </form>
 <br>
 <form id="idSearch">
     <label for="synset_id">SynSet Id:</label>
     <input type="text" id="synset_id" name="synset_id" required><br><br>
     <input type="submit" value="Find Sense">
+    <script>
+        document.getElementById('idSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const synsetId = document.getElementById('synset_id').value;
+            for (let i = 0; i < turkishSentiNet.length; i++) {
+                const sentiNetObject = turkishSentiNet[i];
+                if (sentiNetObject["id"] === synsetId) {
+                    document.getElementById("result").innerHTML = displaySentiment(sentiNetObject);
+                    break;
+                }
+            }
+        })
+    </script>
 </form>
 <p id="result"></p>
-<script src="js/turkish/turkish-sentinet-search.js"></script>
 </body>
 </html>

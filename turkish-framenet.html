@@ -88,24 +88,51 @@
     <title>Turkish FrameNet</title>
 </head>
 <body>
+<script src="data/turkish/turkish-framenet.js"></script>
+<script src="data/turkish/turkish-wordnet.js"></script>
+<script src="js/wordnet-search.js"></script>
+<script src="js/turkish/turkish-framenet-search.js"></script>
 <form id="frameSearch">
     <label for="frame_name">Frame name:</label>
     <input type="text" id="frame_name" name="frame_name" required><br><br>
     <input type="submit" value="Find Frame">
+    <script>
+        document.getElementById('frameSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const frameName = document.getElementById('frame_name').value;
+            document.getElementById("result").innerHTML = createFrameTable(frameName);
+        });
+    </script>
 </form>
 <br>
 <form id="verbSearch">
     <label for="verb_name">Verb:</label>
     <input type="text" id="verb_name" name="verb_name" required><br><br>
     <input type="submit" value="Find Verb">
+    <script>
+        document.getElementById('verbSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const verbName = document.getElementById('verb_name').value;
+            let synsets = getSynsetsWithWord(verbName, turkishWordNet)
+            let frames = getFramesForSynSets(synsets)
+            document.getElementById("result").innerHTML = createTableOfFrames(frames)
+        });
+    </script>
 </form>
 <br>
 <form id="idSearch">
     <label for="verb_id">Verb SynSet Id:</label>
     <input type="text" id="verb_id" name="verb_id" required><br><br>
     <input type="submit" value="Find Verb">
+    <script>
+        document.getElementById('idSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const verbId = document.getElementById('verb_id').value;
+            let frames = getFramesForSynSet(verbId)
+            document.getElementById("result").innerHTML = createTableOfFrames(frames)
+        });
+    </script>
 </form>
 <p id="result"></p>
-<script src="js/turkish/turkish-framenet-search.js"></script>
 </body>
 </html>

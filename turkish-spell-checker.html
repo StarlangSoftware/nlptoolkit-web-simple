@@ -92,8 +92,16 @@
     <label for="sentence">Sentence:</label>
     <input type="text" id="sentence" name="sentence" required><br><br>
     <input type="submit" value="Spell Check">
+    <script src="js/turkish/spell-check.js"></script>
+    <script src="data/turkish/spell-dictionary.js"></script>
+    <script>
+        addEventListener('submit', function (event) {
+            event.preventDefault();
+            const sentence = document.getElementById('sentence').value;
+            document.getElementById("result").innerHTML = createSpellCheckTable(sentence);
+        });
+    </script>
 </form>
 <p id="result"></p>
-<script src="js/turkish/spell-check.js"></script>
 </body>
 </html>

@@ -92,8 +92,16 @@
     <label for="sentence">Sentence:</label>
     <input type="text" id="sentence" name="sentence" required><br><br>
     <input type="submit" value="Deasciifier">
+    <script src="data/turkish/turkish-deasciified.js"></script>
+    <script src="js/word-table.js"></script>
+    <script>
+        addEventListener('submit', function (event) {
+            event.preventDefault();
+            const sentence = document.getElementById('sentence').value;
+            document.getElementById("result").innerHTML = createWordTableForSentence(sentence, "Deasciified", turkishDeasciified, "deasciified", false, true);
+        })
+    </script>
 </form>
 <p id="result"></p>
-<script src="js/turkish/deasciifier.js"></script>
 </body>
 </html>

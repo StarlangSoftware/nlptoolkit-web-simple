@@ -92,8 +92,16 @@
     <label for="sentence">Sentence:</label>
     <input type="text" id="sentence" name="sentence" required><br><br>
     <input type="submit" value="Sentiment Analysis">
+    <script src="data/turkish/turkish-sentiment-analysis.js"></script>
+    <script src="js/word-table.js"></script>
+    <script>
+        addEventListener('submit', function (event) {
+            event.preventDefault();
+            const sentence = document.getElementById('sentence').value;
+            document.getElementById("result").innerHTML = createWordTableForSentence(sentence, "Sentiment Analysis", sentimentAnalysis, "polarity", true, false);
+        });
+    </script>
 </form>
 <p id="result"></p>
-<script src="js/turkish/sentiment-analysis.js"></script>
 </body>
 </html>

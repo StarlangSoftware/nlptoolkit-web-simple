@@ -1,15 +1,3 @@
-function include(file) {
-    let script = document.createElement('script');
-    script.src = file;
-    script.type = 'text/javascript';
-    script.defer = true;
-    document.getElementsByTagName('head').item(0).appendChild(script);
-}
-
-include('data/turkish/turkish-framenet.js');
-include('data/turkish/turkish-wordnet.js');
-include('js/wordnet-search.js');
-
 function createFrameTable(frameName) {
     let display = "Lexical Units <br> <table> <tr> <th>Id</th> <th>Words</th> <th>Definition</th> </tr>";
     for (let i = 0; i < turkishFrameNet.length; i++) {
@@ -101,24 +89,3 @@ function getFramesForSynSets(synsets) {
     }
     return result
 }
-
-document.getElementById('frameSearch').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const frameName = document.getElementById('frame_name').value;
-    document.getElementById("result").innerHTML = createFrameTable(frameName);
-})
-
-document.getElementById('verbSearch').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const verbName = document.getElementById('verb_name').value;
-    let synsets = getSynsetsWithWord(verbName, turkishWordNet)
-    let frames = getFramesForSynSets(synsets)
-    document.getElementById("result").innerHTML = createTableOfFrames(frames)
-})
-
-document.getElementById('idSearch').addEventListener('submit', function (event) {
-    event.preventDefault();
-    const verbId = document.getElementById('verb_id').value;
-    let frames = getFramesForSynSet(verbId)
-    document.getElementById("result").innerHTML = createTableOfFrames(frames)
-})

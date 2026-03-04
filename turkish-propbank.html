@@ -88,18 +88,36 @@
     <title>Turkish PropBank</title>
 </head>
 <body>
+<script src="data/turkish/turkish-wordnet.js"></script>
+<script src="data/turkish/turkish-propbank.js"></script>
+<script src="js/wordnet-search.js"></script>
+<script src="js/turkish/turkish-propbank-search.js"></script>
 <form id="verbSearch">
     <label for="verb_name">Verb:</label>
     <input type="text" id="verb_name" name="verb_name" required><br><br>
     <input type="submit" value="Find Verb">
+    <script>
+        document.getElementById('verbSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const verbName = document.getElementById('verb_name').value;
+            let synsets = getSynsetsWithWord(verbName, turkishWordNet)
+            document.getElementById("result").innerHTML = createPropBankTableForMultipleSynsets(synsets);
+        })
+    </script>
 </form>
 <br>
 <form id="idSearch">
     <label for="verb_id">Verb SynSet Id:</label>
     <input type="text" id="verb_id" name="verb_id" required><br><br>
     <input type="submit" value="Find Verb">
+    <script>
+        document.getElementById('idSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const verbId = document.getElementById('verb_id').value;
+            document.getElementById("result").innerHTML = createPropBankTable(verbId);
+        })
+    </script>
 </form>
 <p id="result"></p>
-<script src="js/turkish/turkish-propbank-search.js"></script>
 </body>
 </html>

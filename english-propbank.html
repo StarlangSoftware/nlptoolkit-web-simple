@@ -88,18 +88,33 @@
     <title>English PropBank</title>
 </head>
 <body>
-<form id="predicateSeaarch">
+<script src="data/english/english-propbank.js"></script>
+<script src="js/english/english-propbank-search.js"></script>
+<form id="predicateSearch">
     <label for="predicate_name">Predicate:</label>
     <input type="text" id="predicate_name" name="predicate_name" required><br><br>
     <input type="submit" value="Find Predicate">
     <br>
+    <script>
+        document.getElementById('predicateSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const predicateName = document.getElementById('predicate_name').value;
+            document.getElementById("result").innerHTML = createPredicateTable(predicateName);
+        })
+    </script>
 </form>
 <form id="roleSetSearch">
     <label for="roleset_id">Roleset Id:</label>
     <input type="text" id="roleset_id" name="roleset_id" required><br><br>
     <input type="submit" value="Find Roleset">
+    <script>
+        document.getElementById('roleSetSearch').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const roleSetName = document.getElementById('roleset_id').value;
+            document.getElementById("result").innerHTML = createRoleSetTable(roleSetName);
+        })
+    </script>
 </form>
 <p id="result"></p>
-<script src="js/english/english-propbank-search.js"></script>
 </body>
 </html>

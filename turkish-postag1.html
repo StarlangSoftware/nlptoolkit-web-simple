@@ -89,6 +89,11 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/pos-tag1.js"></script>
+<script src="data/turkish-annotated/pos-tag.js"></script>
+<script src="js/turkish-annotated/pos-tag.js"></script>
+<script>document.getElementById("result").innerHTML =
+        createPosTableForDataSet(framenet, "Framenet") +
+        createPosTableForDataSet(tourism, "Tourism") +
+        createPosTableForDataSet(kenet, "Kenet");</script>
 </body>
 </html>

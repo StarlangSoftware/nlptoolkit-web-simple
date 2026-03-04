@@ -89,6 +89,8 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/ner1.js"></script>
+<script src="data/turkish-annotated/ner.js"></script>
+<script src="js/turkish-annotated/ner.js"></script>
+<script>document.getElementById("result").innerHTML = createNerTableForDataSet(penn, "Penn-Treebank");</script>
 </body>
 </html>

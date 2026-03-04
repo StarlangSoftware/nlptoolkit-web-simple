@@ -89,6 +89,15 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/pos-tag2.js"></script>
+<script src="data/turkish-annotated/pos-tag.js"></script>
+<script src="js/turkish-annotated/pos-tag.js"></script>
+<script>document.getElementById("result").innerHTML =
+        createPosTableForDataSet(atis, "Atis") +
+        createPosTableForDataSet(gb, "Gb") +
+        createPosTableForDataSet(pud, "Pud") +
+        createPosTableForDataSet(atis, "Imst") +
+        createPosTableForDataSet(gb, "Boun") +
+        createPosTableForDataSet(pud, "Penn-Treebank");
+</script>
 </body>
 </html>

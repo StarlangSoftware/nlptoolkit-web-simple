@@ -89,6 +89,11 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/morphological-disambiguation4.js"></script>
+<script src="data/turkish-annotated/morphological-disambiguation.js"></script>
+<script src="js/turkish-annotated/morphological-disambiguation.js"></script>
+<script>
+  document.getElementById("result").innerHTML =
+          createMorphologyTableForDataSet(penn, "Penn-Treebank");
+</script>
 </body>
 </html>

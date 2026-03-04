@@ -89,6 +89,12 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/morphological-disambiguation1.js"></script>
+<script src="data/turkish-annotated/morphological-disambiguation.js"></script>
+<script src="js/turkish-annotated/morphological-disambiguation.js"></script>
+<script>
+  document.getElementById("result").innerHTML =
+          createMorphologyTableForDataSet(framenet, "Framenet") +
+          createMorphologyTableForDataSet(tourism, "Tourism");
+</script>
 </body>
 </html>

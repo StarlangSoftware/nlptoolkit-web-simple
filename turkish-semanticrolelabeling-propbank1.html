@@ -89,6 +89,13 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/propbank1.js"></script>
+<script src="data/turkish-annotated/propbank.js"></script>
+<script src="js/turkish-annotated/propbank.js"></script>
+<script>
+  document.getElementById("result").innerHTML =
+          createPropbankTableForDataSet(atis, "Atis") +
+          createPropbankTableForDataSet(framenet, "Framenet") +
+          createPropbankTableForDataSet(tourism, "Tourism");
+</script>
 </body>
 </html>

@@ -89,6 +89,11 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/semantics2.js"></script>
+<script src="data/turkish-annotated/semantics.js"></script>
+<script src="js/turkish-annotated/semantics.js"></script>
+<script>
+  document.getElementById("result").innerHTML =
+          createSemanticsTableForDataSet(kenet, "Kenet");
+</script>
 </body>
 </html>

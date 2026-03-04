@@ -89,6 +89,15 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/morphological-disambiguation2.js"></script>
+<script src="data/turkish-annotated/morphological-disambiguation.js"></script>
+<script src="js/turkish-annotated/morphological-disambiguation.js"></script>
+<script>
+  document.getElementById("result").innerHTML =
+          createMorphologyTableForDataSet(atis, "Atis") +
+          createMorphologyTableForDataSet(gb, "Gb")+
+          createMorphologyTableForDataSet(pud, "Pud") +
+          createMorphologyTableForDataSet(imst, "Imst") +
+          createMorphologyTableForDataSet(boun, "Boun");
+</script>
 </body>
 </html>

@@ -89,6 +89,10 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/shallowparse1.js"></script>
+<script src="data/turkish-annotated/shallowparse.js"></script>
+<script src="js/turkish-annotated/shallowparse.js"></script>
+<script>document.getElementById("result").innerHTML =
+        createShallowParseTableForDataSet(tourism, "Tourism") +
+        createShallowParseTableForDataSet(penn, "Penn-Treebank");</script>
 </body>
 </html>

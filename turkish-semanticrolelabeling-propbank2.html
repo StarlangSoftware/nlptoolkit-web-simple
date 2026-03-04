@@ -89,6 +89,11 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/propbank2.js"></script>
+<script src="data/turkish-annotated/propbank.js"></script>
+<script src="js/turkish-annotated/propbank.js"></script>
+<script>
+  document.getElementById("result").innerHTML =
+          createPropbankTableForDataSet(kenet, "Kenet");
+</script>
 </body>
 </html>

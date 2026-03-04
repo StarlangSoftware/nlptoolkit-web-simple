@@ -89,6 +89,13 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/framenet1.js"></script>
+<script src="data/turkish-annotated/framenet.js"></script>
+<script src="js/turkish-annotated/framenet.js"></script>
+<script>
+  document.getElementById("result").innerHTML =
+          createFramenetTableForDataSet(atis, "Atis") +
+          createFramenetTableForDataSet(framenet, "Framenet") +
+          createFramenetTableForDataSet(tourism, "Tourism");
+</script>
 </body>
 </html>

@@ -89,6 +89,10 @@
 </head>
 <body>
 <p id="result"></p>
-<script src="js/turkish-annotated/framenet3.js"></script>
+<script src="data/turkish-annotated/framenet.js"></script>
+<script src="js/turkish-annotated/framenet.js"></script>
+<script>
+  document.getElementById("result").innerHTML = createFramenetTableForDataSet(penn, "Penn-Treebank");
+</script>
 </body>
 </html>
